@@ -23,7 +23,7 @@ app.use(cookieParser())
 
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
-app.use("/api/posts", postRoutes)
+app.use("/api/videos", postRoutes)
 app.use("/api/comments", commentRoutes)
 
 app.use((err, req, res, next) => {
