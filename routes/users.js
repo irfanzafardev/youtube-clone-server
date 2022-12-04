@@ -1,6 +1,6 @@
 import express from 'express'
 import { deleteUserController, dislikePost, getUserController, likePost, subscribeUserController, unsubscribeUserController, updateUserController } from '../controllers/user.js';
-import { verifyToken } from '../verifyToken.js';
+import { authMiddleware } from '../authMiddleware.js';
 
 const router = express.Router()
 
@@ -8,21 +8,21 @@ const router = express.Router()
 router.get('/find/:userId', getUserController)
 
 // Update user account
-router.put('/:userId', verifyToken, updateUserController)
+router.put('/:userId', authMiddleware, updateUserController)
 
 // Delete user account
-router.delete('/:userId', verifyToken, deleteUserController)
+router.delete('/:userId', authMiddleware, deleteUserController)
 
 // Subscribe user account
-router.put('/subscribe/:userId', verifyToken, subscribeUserController)
+router.put('/subscribe/:userId', authMiddleware, subscribeUserController)
 
 // Unsubsribe user account
-router.put('/unsubscribe/:userId', verifyToken, unsubscribeUserController)
+router.put('/unsubscribe/:userId', authMiddleware, unsubscribeUserController)
 
 // Like post
-router.put('/like/:postId', verifyToken, likePost)
+router.put('/like/:postId', authMiddleware, likePost)
 
 // Disike post
-router.put('/dislike/:postId', verifyToken, dislikePost)
+router.put('/dislike/:postId', authMiddleware, dislikePost)
 
 export default router;
