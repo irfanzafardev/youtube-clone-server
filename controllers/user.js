@@ -11,6 +11,15 @@ export const getUserController = async (req, res, next) => {
   }
 }
 
+export const getAllUserController = async (req, res, next) => {
+  try {
+    const user = await User.find()
+    res.status(200).json(user)
+  } catch (error) {
+    next(error)
+  }
+}
+
 export const updateUserController = async (req, res, next) => {
   if (req.params.userId === req.user.id) {
     try {

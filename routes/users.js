@@ -1,11 +1,14 @@
 import express from 'express'
-import { deleteUserController, dislikePost, getUserController, likePost, subscribeUserController, unsubscribeUserController, updateUserController } from '../controllers/user.js';
+import { deleteUserController, dislikePost, getAllUserController, getUserController, likePost, subscribeUserController, unsubscribeUserController, updateUserController } from '../controllers/user.js';
 import { authMiddleware } from '../authMiddleware.js';
 
 const router = express.Router()
 
 // Get user account
 router.get('/find/:userId', getUserController)
+
+// Get user account
+router.get('/all', getAllUserController)
 
 // Update user account
 router.put('/:userId', authMiddleware, updateUserController)
