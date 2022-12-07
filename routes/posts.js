@@ -4,6 +4,12 @@ import { authMiddleware } from '../authMiddleware.js';
 
 const router = express.Router()
 
+// Get all post
+router.get('/all', getAllPost)
+
+// // Get subscribed post
+router.get('/subscribed', authMiddleware, getSubPost)
+
 // Get post
 router.get('/find/:postId', authMiddleware, getPostController)
 
@@ -21,13 +27,11 @@ router.get('/:postId', authMiddleware, deletePostController)
 
 
 
-// // Get all post
-// router.get('/', getAllPost)
 
-// // Get subscribed post
-// router.get('/', authMiddleware, getSubPost)
+
+
 
 // Get by search
-router.get('/', getBySearch)
+// router.get('/', getBySearch)
 
 export default router;

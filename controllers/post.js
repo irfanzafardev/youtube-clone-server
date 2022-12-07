@@ -14,7 +14,8 @@ export const createPostController = async (req, res, next) => {
 
 export const getPostController = async (req, res, next) => {
   try {
-    const post = await Post.findById(req.params.postId)
+    const id = req.params.postId
+    const post = await Post.findById(id)
     res.status(200).json(post)
   } catch (error) {
     next(error)
