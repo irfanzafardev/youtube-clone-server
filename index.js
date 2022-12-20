@@ -11,7 +11,7 @@ const app = express()
 dotenv.config()
 
 const connect = () => {
-  mongoose.connect(process.env.MONGO).then(() => {
+  mongoose.connect("mongodb+srv://irfanzafar:irfanzafar@cluster0.tmmsx79.mongodb.net/?retryWrites=true&w=majority").then(() => {
     console.log('connected to database!')
   }).catch(err => {
     throw err
