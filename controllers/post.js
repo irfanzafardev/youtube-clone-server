@@ -96,7 +96,7 @@ export const getSubPost = async (req, res, next) => {
       })
     );
 
-    res.status(200).json(postList)
+    res.status(200).json(postList.flat().sort((a, b) => b.createdAt - a.createdAt))
   } catch (error) {
     next(error)
   }

@@ -5,7 +5,9 @@ import { createCommentController, deleteCommentController, getCommentController 
 const router = express.Router()
 
 router.get('/:postId', authMiddleware, getCommentController)
+
 router.post('/', authMiddleware, createCommentController)
+
 router.delete('/:commentId', authMiddleware, deleteCommentController)
 
 export default router;

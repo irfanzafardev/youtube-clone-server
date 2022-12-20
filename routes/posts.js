@@ -10,6 +10,9 @@ router.get('/all', getAllPost)
 // // Get subscribed post
 router.get('/subscribed', authMiddleware, getSubPost)
 
+// Get by search
+router.get('/search', getBySearch)
+
 // Get post
 router.get('/find/:postId', authMiddleware, getPostController)
 
@@ -24,14 +27,5 @@ router.get('/:postId', authMiddleware, updatePostController)
 
 // Delete post
 router.get('/:postId', authMiddleware, deletePostController)
-
-
-
-
-
-
-
-// Get by search
-// router.get('/', getBySearch)
 
 export default router;
